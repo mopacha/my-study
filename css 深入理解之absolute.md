@@ -111,46 +111,140 @@ HTML如下：
 
 无需在父元素设置position：relative,直接对里面的元素使用absulute定位利用了absolute 的跟随性和不占空间的特点，，然后使用margin来精确定位，实现相对定位的效果。
 
-优点：自适应性更强
+html顺序很重要，体现了跟随性
+
+传统实现： 父容器position: relative; 页面之后维护时，这个属性可能会去掉，其依赖的绝对定位可能会飞到很远的地方；
+
+优点：无依赖的绝对定位由于不依赖父元素，这种定位，更强大，更容易维护，自适应性更强
 
 * 2.注释<!-- -->
 
 可以用来消除两个标签之间的空格，保证两个元素之间完美的贴合。(同时保持代码可读性)
 
+### 4-3 下拉框定位最佳实践
+
+在HTML中将ul放在input前面，再利用absolute位置跟随特性，宽和高脱离了文档流不占空间特性，再配合margin来实现。
+
+### 4-5 居中以及边缘对齐定位
+
+无依赖绝对定位----居中
+父div text-align：center；
+子为&nbsp（文本居中）+要居中的元素
+要居中元素绝对定位，margin-left自身宽度一半实现
 
 
 
+无依赖绝对定位-----右侧fixed
+父元素text-align：right height：0
+子元素为 空格（文本右对齐）+要定位div
+要定位div display：inline（跟在 空格后）margin后position：fixed 
+
+display：inline是很有用的，否则div要换行显示
+
+
+### 4-7 各种对齐溢出技巧实例
+
+星号左对齐实现方法 ：绝对定位 + margin ，不占据空间。这样文字也能对齐；
+
+图标文字对齐 ：绝对定位 + margin-left负值；
+
+溢出效果：本来已经超出了整体的容器范围，但是因为绝对定位不占据任何空间，不会自动换行，所以有溢出效果；
 
 
 
+## absolute 和层级
+
+### 5-1 脱离文档流二三事情
+
+脱离文档流：
+
+回流与重绘：动画尽量作用在局对定位元素上，因为已经脱离了文档流，不会影响文档流
+
+垂直空间的层级：绝对定位元素 会在普通元素之上。绝对定位元素之间也有层级： 遵循准则--后来居上
+
+z-index潜在误区： 绝对定位元素都需要z-index控制层级，确定其显示的垂直位置！
+
+#### z-index无依赖
+
+1. 如果只有一个绝对定位元素，自然不需要z-index，自动覆盖普通元素；
+2. 如果两个绝对定位，控制DOM流的前后顺序达到需要的覆盖效果，依然无z-index；
+3. 如果多个绝对定位交错，非常非常少见，z-index：1控制；
+4. 如果非弹框类的绝对定位元素z-index>2, 必定z-index冗余，请优化！
 
 
+## absolute 天使的翅膀
+
+### 6-2 天使的翅膀
 
 
+技能克星：被定位了的父元素 position：relative/absolute/fixed/
+
+藕断丝连半天使：只使用top属性的话，只能在垂直方向上瞬间移动，而水平方向仍旧受凡间小伙伴的牵连
+
+折翼天使变大天使：定位，一般组合使用
 
 
+## 第7章 absolute和width/height
+
+### 7-1 left/top/right/bottom 与width/height  
+
+异曲同工与特殊表现
+
+首先，相互替代性
+
+已知页面已有样式：html, body { height: 100%; }
+
+实现一个全屏自适应的50%黑色半透明遮罩层，你会怎么实现？
+
+通常技术方案：
+
+```
+.overlay { 
+    position: absolute; 
+    width: 100%; height: 100%; 
+    left: 0; top: 0; 
+    … 
+}
+
+```
+
+可能有些人并不知道，还可以这么实现……
+
+```
+.overlay { 
+    position: absolute; 
+    left: 0; top: 0; right:0; bottom: 0;
+    …
+}
+```
+没有宽度(width)没有高度(height)实现宽高满屏效果。
+
+绝对定位方向是对立(如：left vs right, top vs bottom)的时候，结果不是瞬间位移，而是身体的爆裂拉伸。
 
 
+也就是说，很多情况下，absolute的翅膀拉伸和width/height是可以相互替代的！
+
+position: absolute;  left: 0; top: 0; width: 50%;
+
+等同于：
+
+position: absolute;  left: 0; top: 0; right: 50%;
+
+注意：天使翅膀的爆裂拉伸特性IE7+支持！
+
+### 差异所在-拉伸更强大
+
+实现一个距离右侧200像素的全屏自适应的容器层，你会怎么实现？
+
+使用拉伸直接：position: absolute;  left: 0; right: 200px;
+
+但是，width只能使用CSS3 calc计算：position: absolute;  left: 0; width: calc(100% - 200px);
 
 
+### 其次，相互支持性
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1. 容器无需固定 width/height值，内部元素亦可拉伸；
+2. 容器拉伸，内部元素支持百分比width/height值；
 
 
 
