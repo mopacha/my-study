@@ -3,7 +3,7 @@
 > 文章参考： 张鑫旭-鑫空间-鑫生活[http://www.zhangxinxu.com]
 > 本文未经授权不得转载或转载请注明出处
 
-##一、 absolute 和 float
+## 一、 absolute 和 float
 
 ### 相同的特性表现(鲜为人知的兄弟关系)
 
