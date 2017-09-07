@@ -272,7 +272,6 @@ HTML如下：
 <img src="https://user-images.githubusercontent.com/20238205/30144510-2e5c9bee-93be-11e7-8b07-41f59c809626.png">
 
 
-
 也就是说，很多情况下，absolute的翅膀拉伸和width/height是可以相互替代的！
 
 `position: absolute;  left: 0; top: 0; **width: 50%**;`等同于：`position: absolute;  left: 0; top: 0; **right: 50%**;`
@@ -302,7 +301,7 @@ CSS驱动的左右半区翻图浏览效果：
 <img src="https://user-images.githubusercontent.com/20238205/30146714-3f592eea-93cc-11e7-9569-48290d1c2630.png">
 
 
-#### 2. 容器拉伸，内部元素支持百分比width/height值；**
+#### 2. 容器拉伸，内部元素支持百分比width/height值；
 
 **通常情况**：元素百分比height要想其作用，需要父级容器的height值不是auto;
 
@@ -317,11 +316,9 @@ CSS驱动的左右半区翻图浏览效果：
 
 如果天使拉伸和width/height尺寸同时存在，会怎么样呢？
 
-```
 width/height设置的尺寸 
 **大于** 
 left/top/right/bottom拉伸的尺寸
-```
 
 因此，`position: absolute; top: 0; left: 0; right: 0; width: 50%; `的实际宽度是50%而不是100%.
 
@@ -332,10 +329,103 @@ left/top/right/bottom拉伸的尺寸
 <img src="https://user-images.githubusercontent.com/20238205/30147049-8e4b4fa4-93ce-11e7-983e-80d9a9cd815e.png">
 
 
-
 当**尺寸限制、拉伸以及margin: auto同时出现**的时候，就会有绝对定位元素的**绝对居中**效果！
 
 **注意**：这种绝对居中需要ie8及ie8以上才能支持！
+
+### 8. absolute网页整体布局——适合移动web的布局策略
+
+### 摆脱狭隘的定位
+
+* 与fixed, relative一样，absolute设计的初衷确实是定位(position)
+
+* 但与fixed, relative不同的是，absolute包含更多特有且强大的特性
+
+* 如果仅仅是使用其实现一些覆盖与定位，则未免大材小用了
+
+* 不妨发挥其潜力，试试使用absolute实现网页的整体布局
+
+**你会发现：兼容性好，自适应强，扩展方便，性能优异，可以方便实现诸多效果，适合移动端，PC端同样精彩。**
+
+
+### absolute与整体布局
+
+#### body降级, 子元素升级
+
+<img src="https://user-images.githubusercontent.com/20238205/30148238-1425f02e-93d5-11e7-8215-e90e23f10ca5.png">
+
+
+升级的子div(假设类名为page)满屏走起：
+
+`.page { position: absolute; left: 0; top: 0; right: 0; bottom: 0 }`
+
+绝对定位受限于父级，因此，page要想愉快地拉伸，需要：
+
+`html, body { height: 100%; }` ，因为默认情况下height为0
+
+#### 各模块-头尾、侧边栏(PC端)各居其位
+
+<img src="https://user-images.githubusercontent.com/20238205/30147806-d9bd8430-93d2-11e7-8fd7-783563f59b33.png">
+
+```
+header, footer { position: absolute; left: 0; right: 0; }
+header { height: 48px; top: 0; }
+footer { height:  52px; bottom: 0; }
+```
+```
+aside { 
+    width: 250px;
+    position: absolute; left: 0; top: 0; bottom: 0 
+}
+```
+#### 内容区域想象成body
+
+<img src="https://user-images.githubusercontent.com/20238205/30147805-d9b81bbc-93d2-11e7-9aae-0c7816b77d16.png">
+
+```
+. content { 
+    position: absolute;
+    top: 48px; bottom: 52px; 
+    left: 250px(如果侧边栏有);
+    overflow: auto;
+}
+```
+此时的头部尾部以及侧边栏都是fixed效果，不跟随滚动。避免了移动端position: fixed实现的诸多问题。
+
+#### 全屏覆盖与page平级
+
+<img src="https://user-images.githubusercontent.com/20238205/30148024-1ae71880-93d4-11e7-97cc-c8660201471a.png">
+
+```
+. overlay { 
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 9;
+}
+```
+
+```
+<div class= " page " ></div>
+<div class= " overlay "></div>
+```
+
+#### 实例页面感受
+
+<img src="https://user-images.githubusercontent.com/20238205/30147807-d9d873bc-93d2-11e7-9548-60b5d7a3a3a8.png">
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
