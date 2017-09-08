@@ -5,7 +5,7 @@
 
 ### float 设计的初衷——文字环绕效果
 
-<img src="1">
+<img src="https://user-images.githubusercontent.com/20238205/30202467-27463d4e-94b1-11e7-9199-6966a6596daf.png">
 
 
 
@@ -15,7 +15,7 @@
 
 Block formatting context — "块级格式化上下文"
 
-<img src="2">
+<img src="https://user-images.githubusercontent.com/20238205/30202504-4668d2fe-94b1-11e7-92e7-13e7ceade47d.png">
 
 具有包裹性的其他小伙伴
 
@@ -26,9 +26,9 @@ Block formatting context — "块级格式化上下文"
 ### 破坏性
 
 
-<img src="3">
+<img src="https://user-images.githubusercontent.com/20238205/30202509-469960f4-94b1-11e7-8322-91f4263379b0.png">
 
-<img src="4">
+<img src="https://user-images.githubusercontent.com/20238205/30202505-46796c22-94b1-11e7-8a4c-34ba9392ed4c.png">
 
 
 具有破坏性的其他小伙伴
@@ -73,7 +73,15 @@ Bug???????? 
 #### 置之死地而后生
 
 
+<img src="https://user-images.githubusercontent.com/20238205/30202502-4654140e-94b1-11e7-9b91-6a0af5e1e628.png">
 
+<img src="https://user-images.githubusercontent.com/20238205/30202503-46549014-94b1-11e7-991a-e92618618d91.png">
+
+<img src="https://user-images.githubusercontent.com/20238205/30202508-46863ca4-94b1-11e7-9487-6592461105dd.png">
+
+<img src="https://user-images.githubusercontent.com/20238205/30202507-46843328-94b1-11e7-8f9e-4a5c41d7e745.png">
+
+<img src="https://user-images.githubusercontent.com/20238205/30202510-469a9e9c-94b1-11e7-99e3-dbe449c13c84.png">
 
 
 #### 结论
@@ -82,36 +90,65 @@ Bug???????? 
 
 —— 因此，父容器高度塌陷根本就不是bug，特性使然！
 
+**浮动是魔鬼  更是情非得已**
 
 
 
+## 4. 清楚浮动
+
+**更准确的说法**：清楚浮动**带来的影响**
+
+### 两大基本方法
 
 
 
+<img src="1">
+****
+<img src="2">
+
+### clear通常应用形式
+
+1. HTML block水平元素底部走起   `  <div …></div>`
+
+2. CSS after伪元素底部生成     `.clearfix:after {}`
 
 
+**不足**
+
+<img src="3">
 
 
+### BFC/haslayout通常声明**
+
+ 1. float:left/right
+ 2. position:absolute/fixed
+ 3. overflow:hidden/scroll (IE7+)
+ 4. display:inline-block/table-cell(IE8+)
+ 5. width/height/zoom:1/… (IE6/IE7)
+
+**不足**
+
+ 1. 无法“一方通行”
+ 2. 你我相逢不相识
 
 
+### 权衡后的策略
 
+```
+.clearfix:after { content: ''; display: block; height: 0; overflow: hidden; clear: both; }
+.clearfix { *zoom: 1; }
+```
+```
+.fix:after {}
+.fix {}
+```
 
+### 更好的方法
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+.clearfix:after { content: ''; display: table; clear: both; }
+.clearfix { *zoom: 1; }
+```
 
 
 
