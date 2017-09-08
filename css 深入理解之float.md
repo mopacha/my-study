@@ -99,6 +99,11 @@ Bug???????? 
 ### 两大基本方法
 
 <img src="https://user-images.githubusercontent.com/20238205/30204075-c8e3a2f4-94b6-11e7-8d70-fb31911cbca3.png">
+
+
+**clear**：与外界还有联系，例如会产生margin重叠的效果
+**BFC/haslayout（应用于父元素）**:封闭，里面的声明不会对外界产生影响，例如float不会出现margin重叠，但也有缺陷，无法使用所有浏览器
+
 <img src="https://user-images.githubusercontent.com/20238205/30204074-c8dbcf70-94b6-11e7-9a0c-fa6a777c0eb6.png">
 
 ### clear通常应用形式
@@ -141,8 +146,50 @@ Bug???????? 
 
 ```
 .clearfix:after { content: ''; display: table; clear: both; }
-.clearfix { *zoom: 1; }
+.clearfix { *zoom: 1; }(为了兼容IE6/7)
 ```
+
+###  切勿滥用
+
+
+<img src="https://user-images.githubusercontent.com/20238205/30206064-7a559438-94bd-11e7-9d51-008c57f73cfc.png">
+
+
+乱入的haslayout往往会让IE6/IE7做出出格的事情！
+
+浮动也会触发haslayout, 所以，浮动在IE6/IE7下更显魔性！
+
+但浮动普遍滥用了！
+
+
+
+
+## 5. float的滥用 --不在其职而谋其政
+
+### 浮动的作用
+
+1. 浮动可以让元素 block 化
+2. 破坏性造成的紧密排列特性(去空格化)：实质上空格是空的字符串，浮动去空格实质上是让空字符串产生了环绕效果。
+
+
+**回车空格和&nbsp的区别**
+
+1. 回车空格在显示中没有显示，后边的元素紧贴上边浮动元素
+
+2. &nbsp占据空间，有一段间距
+
+### float块元素布局的问题
+
+1. 容错性比较糟糕，容易出问题
+2. 需要元素固定尺寸，会发生不配对，重新调整
+3. 低版本ie7下有很多问题。
+
+**！少使用浮动实现砌砖布局。**
+
+**要实现流体布局**
+
+
+
 
 
 

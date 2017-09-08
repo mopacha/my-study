@@ -36,8 +36,8 @@
         <entry file="file://$PROJECT_DIR$/css 深入理解之absolute.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="-60">
-                <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+              <first_editor relative-caret-position="40">
+                <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="20" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -49,8 +49,8 @@
         <entry file="file://$PROJECT_DIR$/css 深入理解之float.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="311">
-                <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <first_editor relative-caret-position="251">
+                <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -313,7 +313,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="107" />
+    <option name="x" value="106" />
     <option name="y" value="38" />
     <option name="width" value="1657" />
     <option name="height" value="990" />
@@ -796,15 +796,15 @@
       <workItem from="1504597044915" duration="20342000" />
       <workItem from="1504772979174" duration="597000" />
       <workItem from="1504838020997" duration="3871000" />
-      <workItem from="1504849417221" duration="3321000" />
+      <workItem from="1504849417221" duration="5362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28131000" />
+    <option name="totallyTimeSpent" value="30172000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="107" y="38" width="1657" height="990" extended-state="0" />
+    <frame x="106" y="38" width="1657" height="990" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1040,8 +1040,8 @@
     <entry file="file://$PROJECT_DIR$/css 深入理解之absolute.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="-60">
-            <caret line="275" column="0" lean-forward="false" selection-start-line="275" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+          <first_editor relative-caret-position="40">
+            <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="20" />
             <folding />
           </first_editor>
           <second_editor />
@@ -1051,8 +1051,8 @@
     <entry file="file://$PROJECT_DIR$/css 深入理解之float.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="311">
-            <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+          <first_editor relative-caret-position="251">
+            <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
