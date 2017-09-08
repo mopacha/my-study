@@ -1,12 +1,14 @@
 
 # css 深入理解之float
 
+> 文章参考： 张鑫旭-鑫空间-鑫生活[http://www.zhangxinxu.com]
+> 本文未经授权不得转载或转载请注明出处
+
 ## 1. float 的历史
 
 ### float 设计的初衷——文字环绕效果
 
 <img src="https://user-images.githubusercontent.com/20238205/30202467-27463d4e-94b1-11e7-9199-6966a6596daf.png">
-
 
 
 ## 2. float 的特性
@@ -24,7 +26,6 @@ Block formatting context — "块级格式化上下文"
 3. overflow: hidden/scroll
 
 ### 破坏性
-
 
 <img src="https://user-images.githubusercontent.com/20238205/30202509-469960f4-94b1-11e7-8322-91f4263379b0.png">
 
@@ -65,10 +66,7 @@ Bug???????? 
 
 **考考你** ：如果你是设计者，你如何利用古老的CSS盒模型规则实现文字环绕效果？
 
-
-
 **CSS盒模型**：巍峨浩瀚，陋室难容；欲攻此玉，他山之石。
-
 
 #### 置之死地而后生
 
@@ -100,11 +98,8 @@ Bug???????? 
 
 ### 两大基本方法
 
-
-
-<img src="1">
-****
-<img src="2">
+<img src="https://user-images.githubusercontent.com/20238205/30204075-c8e3a2f4-94b6-11e7-8d70-fb31911cbca3.png">
+<img src="https://user-images.githubusercontent.com/20238205/30204074-c8dbcf70-94b6-11e7-9a0c-fa6a777c0eb6.png">
 
 ### clear通常应用形式
 
@@ -115,8 +110,7 @@ Bug???????? 
 
 **不足**
 
-<img src="3">
-
+<img src="https://user-images.githubusercontent.com/20238205/30204076-c8fa233a-94b6-11e7-9d43-fb742555146d.png">
 
 ### BFC/haslayout通常声明**
 
