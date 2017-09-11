@@ -189,6 +189,98 @@ Bug???????? 
 **要实现流体布局**
 
 
+## 6. 浮动与流体布局
+
+
+
+### 看家本领—— 文字环绕萌萌哒
+
+float+ inline 水平的跟随元素
+
+
+### 文字环绕变身
+
+```
+<div class="left">左青龙</div>
+<div class="right">右白虎</div>
+<div class="center">中间是标题</div>
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.center{
+	text-align: center;
+}
+```
+
+<img src="https://user-images.githubusercontent.com/20238205/30257119-6671357c-96e2-11e7-98b2-beddb9d12379.png">
+
+### 文字环绕的衍生——单侧固定（左侧固定右侧自适应）
+
+```
+width+float(左侧元素)
+padding-left/margin-left(右侧元素，可实现当改变宽度时整体都随之变化)
+```
+
+<img src="https://user-images.githubusercontent.com/20238205/30257120-6674bd96-96e2-11e7-8443-af40e09b4f57.png">
+
+
+### DOM文档流与显示位置匹配（右侧固定左侧自适应）
+
+
+1. 为不匹配型，头像定宽右浮动，内容margin-right；
+
+```
+  头像divA { width：  ；float：right；}
+  自适应divB{ margin-right：；}
+
+```
+
+2. 为匹配型（代码顺序与显示效果一致），先文档后图片：外层标签设置，宽度100%，左浮动；内嵌标签margin-right撑开间距，头像定宽左浮动，注意margin负值
+
+
+```
+.mib_full_float{ width:100%; float:right;}
+     .mib_feed_flow{ margin-right: 76px;} //在自适应容器外部添加一个标签
+.mib_head_l{ width:56px; float:left; margin-left:-56px;}
+```
+
+<img src="https://user-images.githubusercontent.com/20238205/30257121-6695720c-96e2-11e7-95ca-4cc8f0feee51.png">
+
+
+### 高级进化 –- 智能自适应尺寸
+
+**智能自适应尺寸**：一侧使用float，另一侧ie8+使用display：table-cell，ie7使用display：inline-block
+
+<img src="https://user-images.githubusercontent.com/20238205/30257122-66bbf364-96e2-11e7-9da3-8304f8331df4.png">
+
+
+### 等......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
