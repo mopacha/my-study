@@ -10,7 +10,7 @@
 
 ### 1. 浮动
 
-#### 1.1 文本环绕图片
+#### 文本环绕图片
 
 ```
 <img ___/>
@@ -26,8 +26,7 @@ img {float: left; margin: 04px 4px 0;}
 
 注：浮动非图片元素时，必须给它设定宽度，否则后果难以预料！
 
-#### 1.2 创建分栏
-
+#### 创建分栏
 
 浮动图片的固定宽度段落一经浮动，就会变成布局中的一栏，其文本也不会环绕图片了；
 
@@ -48,7 +47,7 @@ img {float: left; margin: 04px 4px 0;}
 ### 2. 围住浮动元素的三种方法
 
 
-**方法一**、 为父元素添加`overflow: hidden`
+#### 方法一、 为父元素添加`overflow: hidden`
 
 ```$xslt
 <section>
@@ -71,7 +70,7 @@ footer {border: 1px solid red;}
 而超大的子内容则会被容器剪切掉。除此之外，overflow:hidden还有另外一个作用，即它可靠的迫使父元素包含其浮动的子元素。
 
 
-**方法二** 同时浮动父元素
+#### 方法二、 同时浮动父元素
 
 
 ```
@@ -87,14 +86,12 @@ footer {border: 1px solid red; clear:left}
 `clear: left`.被清除的元素不会被提升到浮动元素的旁边。
 
 
-**方法三**、 添加非浮动的清除元素
+#### 方法三、 添加非浮动的清除元素
 
 给元素的最后添加一个非浮动的子元素，然后清除该子元素。由于包含元素一定会包围非浮动的子元素，
 而且清除会让这个子元素位于（清除一侧）浮动元素的下方，因此包含元素一定会包含这个子元素——以及前面的浮动元素。
 
-
 在包含元素最后添加子元素作为清除元素的方式有两种。
-
 
 
 1). 
@@ -107,7 +104,6 @@ footer {border: 1px solid red; clear:left}
     </section>
     <footer>Here is the footer element that runs across the bottom of the page.</footer>
     
-    
     section {border: 1px solid red; margin: 0 0 10px 0;}
     img {float: left}
     .clear_me{clear: left}
@@ -115,8 +111,7 @@ footer {border: 1px solid red; clear:left}
     footer {border: 1px solid red;}
 
 ```
-2) 
-
+2).  
 
 ```
     <section class="clearfix">
@@ -134,18 +129,15 @@ footer {border: 1px solid red; clear:left}
         clear:both;
     }
     
-    
 ```
 
-举一反三： 
+**举一反三：** 
 
 ```$xslt
 
 dispaly: none //隐藏对象，不为被隐藏对象保留其物理空间
-
          inline // 内联对象， 默认值
 ```
-
 
 ### 总结
 
@@ -158,7 +150,9 @@ dispaly: none //隐藏对象，不为被隐藏对象保留其物理空间
 * 在父元素内容的末尾添加非浮动元素，可以直接在标记中加， 也可以通过给父元素添加clearfix类来加；
 
 
-注意： 不能在下拉菜单的顶级元素上应用overflow：hidden,否则 作为资源上的下拉菜单就不会显示了。
+**注意** 
+
+不能在下拉菜单的顶级元素上应用overflow：hidden,否则 作为资源上的下拉菜单就不会显示了。
 
 因为下拉菜单会显示在其父元素区域的外部，而这恰恰是overflow:hidden 所阻止的。
 
