@@ -1,7 +1,7 @@
 
 ## JS中super关键字
 
-#### super作为函数调用时，代表父类的构造函数
+### super作为函数调用时，代表父类的构造函数
 
 ```$xslt
 class A {}
@@ -18,7 +18,7 @@ class B extend A {
 * 构造函数中的this指向实例对象
 
 
-#### super 作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类
+### super 作为对象时，在普通方法中，指向父类的原型对象；在静态方法中，指向父类
 
 * 在普通方法中通过super调用父类的方法时，方法内部的this指向当前的子类实例
 * super作为对象，用在静态方法中，这时的super将指向父类，而不是父类的原型对象
@@ -74,7 +74,7 @@ b.myMethod(2);// instance 2   在普通方法中指向父类的原型对象
 Child.myMethod(1); // static 1  在静态方法中指向父类
 
 ```
-上面代码中，super.print()虽然调用的是A.prototype.print(),但是A.prototype.print()内部的this指向子类B的实例，导致输出2 ，而不是1。也就是说实际上执行的是super.print.call(this);
+**上面代码中，super.print()虽然调用的是A.prototype.print(),但是A.prototype.print()内部的this指向子类B的实例，导致输出2 ，而不是1。也就是说实际上执行的是super.print.call(this);**
 
 
 ```
@@ -105,7 +105,7 @@ class B extend A {
 B.x = 3;
 B.m() //3
 ```
-上面代码中，静态方法B.m里面，super.print指向父类的静态方法。这个方法里面的this指向的是B，而不是B的实例。
+**上面代码中，静态方法B.m里面，super.print指向父类的静态方法。这个方法里面的this指向的是B，而不是B的实例。**
 
 参考文章
 
